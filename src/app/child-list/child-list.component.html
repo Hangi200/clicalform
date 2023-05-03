@@ -1,0 +1,30 @@
+<div class="mt-2">
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>#</th>
+            <th>Reg No</th>
+            <th>Child Name</th>
+            <th>Gender</th>
+            <th>Birth date</th>
+            <th>Weight (kg)</th>
+            <th>Father</th>
+            <th>Mother</th>
+            <th>Address</th>
+            <th>Phone</th>
+        </tr>
+
+        <tr *ngFor="let child of children index by i">
+            <td> {{ children.indexOf(child) + 1 }} </td>
+            <td> {{ child.regNo }} </td>
+            <td> {{ child.name }} </td>
+            <td> {{ child.gender }} </td>
+            <td> {{ child.birthDate }} </td>
+            <td> {{ child.weight }} </td>
+            <td> {{ child.fatherName }} </td>
+            <td> {{ child.motherName }} </td>
+            <td> {{ child.address }} </td>
+            <td> {{ child.phoneNo }} </td>
+            <td> <button class="btn btn-primary" (click)="open(child)">Details</button> </td>
+        </tr>
+    </table>
+</div>

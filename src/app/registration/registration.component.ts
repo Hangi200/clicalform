@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ChildRegistrationService } from '../child-registration.service';
@@ -8,6 +8,7 @@ import { ChildRegistrationService } from '../child-registration.service';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
+
 export class RegistrationComponent implements OnInit {
 
   constructor(private router: Router, private service:ChildRegistrationService) { }
@@ -33,7 +34,6 @@ export class RegistrationComponent implements OnInit {
     console.log(data);
     this.service.registerChild(data).subscribe(response => {
       alert("Registration successful");
-      this.router.navigate(["/immunization"]);
     });
   }
 
