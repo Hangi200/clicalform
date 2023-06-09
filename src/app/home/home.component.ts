@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,10 @@ export class HomeComponent implements OnInit {
 
   @Input() child:any;
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+      this.router.navigate(["/registration"]);
   }
 
 }

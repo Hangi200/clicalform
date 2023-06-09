@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-child-details',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChildDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.router.navigate(["/child/immunization"]);
+    });
+    
   }
 
 }

@@ -11,17 +11,24 @@ export class ChildListComponent implements OnInit {
 
   children:any = [];
   @Output() selectedChild:any;
+  searchName:string = "";
 
   constructor(private service:ChildRegistrationService, private router:Router) { }
 
   open(child:any) {
     this.selectedChild = child;
-    this.router.navigate(["/child"])
+    localStorage.setItem('child', JSON.stringify(child));
+    this.router.navigate(["/child"]);
+  }
+
+  search() {
+    this.service.searchChild(this.searchName).subscribe(searchList => {
+      this.children = searchList;
+    });
   }
 
   ngOnInit(): void {
     this.service.getChildList().subscribe(list => {
-      console.log(list);
       this.children = list;
     });
   }

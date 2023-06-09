@@ -1,63 +1,111 @@
 <form class="mt-2" [formGroup]="form" (ngSubmit)="submit()">
     <div class="form border p-3">
-        <div class="text-bg-primary p-2"><span>Family identification</span></div>
+        <div class="p-3 mb-2 bg-primary text-white"><span>Family identification</span></div>
 
+        <div class="mt-3">Mother's Details</div> 
         <div class="row mt-2">
             <div class="col">
-                <input type="text" placeholder="Mothers name" class="form-control" formControlName="motherName">
+                <label for="">First Name</label>
+                <input type="text" placeholder="First Name" class="form-control" formControlName="motherFirstName" required>
             </div>
             <div class="col">
-                <input type="text" placeholder="Fathers name" class="form-control" formControlName="fatherName">
+                <label for="">Middle Name</label>
+                <input type="text" placeholder="Middle Name" class="form-control" formControlName="motherMiddleName" required>
             </div>
             <div class="col">
-                <input type="text" placeholder="Address" class="form-control" formControlName="address">
+                <label for="">SurName</label>
+                <input type="text" placeholder="SurName" class="form-control" formControlName="motherSurName" required>
+            </div>
+            <div class="col">
+                <label for="">Phone No.</label>
+                <input type="text" placeholder="Phone No." class="form-control" formControlName="motherPhone" required>
             </div>
         </div>
 
+        <div class="mt-3">Father's Details</div>
         <div class="row mt-2">
-            <div class="col-4">
-                <input type="tel" placeholder="Phone No." class="form-control" formControlName="phoneNo">
+            <div class="col">
+                <label for="">First Name</label>
+                <input type="text" placeholder="First Name" class="form-control" formControlName="fatherFirstName" required>
+            </div>
+            <div class="col">
+                <label for="">Middle Name</label>
+                <input type="text" placeholder="Middle Name" class="form-control" formControlName="fatherMiddleName" required>
+            </div>
+            <div class="col">
+                <label for="">SurName</label>
+                <input type="text" placeholder="SurName" class="form-control" formControlName="fatherSurName" required>
+            </div>
+            <div class="col">
+                <label for="">Phone No.</label>
+                <input type="text" placeholder="Phone No." class="form-control" formControlName="fatherPhone" required>
             </div>
         </div>
     </div>
 
     <div class="form border p-3">
-        <div class="text-bg-primary p-2"><span>Birth records</span></div>
+        <div class="p-3 mb-2 bg-primary text-white"><span>Birth records</span></div>
         <div class="row mt-2">
             <div class="col">
-                <input type="text" placeholder="Child's name" class="form-control" formControlName="name">
+                <label for="reg">Reg. No.</label>
+                <input type="text" placeholder="Birth Reg No." class="form-control" formControlName="regNo" required>
             </div>
-            <div class="col d-flex">
-                <span class="flex-bias">Date of birth: </span>
-                <input type="date" class="form-control flex-bias" placeholder="Date of birth" formControlName="birthDate">
+            <div class="col">
+                <label for="name">Child Name</label>
+                <input type="text" placeholder="Child's name" class="form-control" formControlName="name" required>
             </div>
-            <div class="col-4">
-                <input type="text" placeholder="Birth place" class="form-control" formControlName="birthPlace">
+            <div class="col">
+                <label for="dob">Date of birth</label>
+                <input type="date" class="form-control flex-bias" placeholder="Date of birth" formControlName="birthDate" required>
             </div>
         </div>
 
         <div class="row mt-2">
             <div class="col-4">
+                <label for="birthPlace">Birth Place</label>
+                <select name="birthPlace" class="form-control" formControlName="birthPlace" required>
+                    <option value="Hospital">Hospital</option>
+                    <option value="Home">Home</option>
+                    <option value="onRoad">Road</option>
+                </select>
+            </div>
+            <div class="col-4">
                 <div class="form-group">
-                    <select class="form-control" id="genderSelect" name="gender" formControlName="gender">
-                        <option value="" selected disabled>Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
+                    <label for="gender">Gender</label>
+                    <select class="form-control" id="genderSelect" name="gender" formControlName="gender" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                     </select>
                 </div>                                   
             </div>
             <div class="col">
-                <input type="number" placeholder="Birth weight" class="form-control" formControlName="weight">
+                <label for="weight">Weight</label>
+                <input type="number" placeholder="Birth weight" class="form-control" formControlName="weight" required>
+            </div>
+            
+        </div>
+
+
+        <div class="row mt-2">
+            <div class="col">
+                <label for="ward">Ward</label>
+                <input type="text" placeholder="Ward" class="form-control" formControlName="ward" required>
             </div>
             <div class="col">
-                <input type="text" placeholder="Birth Reg No." class="form-control" formControlName="regNo">
+                <label for="district">District</label>
+                <input type="text" placeholder="District" class="form-control" formControlName="district" required>
+            </div>
+            <div class="col">
+                <label for="region">Region</label>
+                <input type="text" placeholder="Region" class="form-control" formControlName="region" required>
             </div>
         </div>
         
 
         <div class="row mt-3">
             <div class="col">
-                <input type="submit" value="Save Registration" class="btn btn-light border">
+                <input type="submit" value="Save Registration" class="btn btn-outline-primary " required>
+                <input type="reset" value="Reset" id="reset" class="btn btn-outline-primary ml-2">
             </div>
         </div>
     </div>

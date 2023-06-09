@@ -36,7 +36,8 @@ const routes: Routes = [
     ChildListComponent,
     ChildDetailsComponent,
     VitaminComponent,
-    GrowthDevelopmentComponent
+    GrowthDevelopmentComponent,
+    ImmunizationRecordComponent
   ],
   imports: [
     BrowserModule,

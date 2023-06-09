@@ -14,16 +14,23 @@ export class RegistrationComponent implements OnInit {
   constructor(private router: Router, private service:ChildRegistrationService) { }
 
   form = new FormGroup({
-    motherName: new FormControl(),
-    fatherName: new FormControl(),
-    address: new FormControl(),
-    phoneNo: new FormControl(),
+    motherFirstName: new FormControl(),
+    motherMiddleName: new FormControl(),
+    motherSurName: new FormControl(),
+    motherPhone: new FormControl(),
+    fatherFirstName: new FormControl(),
+    fatherMiddleName: new FormControl(),
+    fatherSurName: new FormControl(),
+    fatherPhone: new FormControl(),
     name: new FormControl(),
     birthDate: new FormControl(),
     birthPlace: new FormControl(),
     gender: new FormControl(),
     weight: new FormControl(),
-    regNo: new FormControl()
+    regNo: new FormControl(),
+    ward: new FormControl(),
+    district: new FormControl(),
+    region: new FormControl()
   });
  
 
@@ -31,9 +38,10 @@ export class RegistrationComponent implements OnInit {
 
   submit() {
     let data = this.form.value;
-    console.log(data);
+
     this.service.registerChild(data).subscribe(response => {
       alert("Registration successful");
+      this.form.reset();
     });
   }
 

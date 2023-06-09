@@ -1,46 +1,149 @@
-<div class="container p-4 border mt-3">
-    <div class="row p-2 border">
-        <div class="col">Vaccine Name</div>
-        <div class="col">Date</div>
-    </div>
+<div class="container p-4 ">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="row mb-3">
+            
 
-    <div class="row p-2 border">
-        <div class="col">BCG(tuberculosis)</div>
-        <div class="col"><input type="date" name="" id="" class="form-control"></div>
-    </div>
+            <div class="d-flex flex-row">
+                <!-- <button class="btn btn-outline-secondary" class="back" (click)="backToRegistration()">Back</button> -->
+                <img src="../../assets/icons/icon.png" alt="Back"  class="back" (click)="backToRegistration()">
+                <div class="ml-2">
+                    <select name="week" id="" class="form-control bg-light text-dark" (change)="onSelectedChange()" formControlName="week">
+                        <option value="100">Choose a week required</option>
+                        <option value="0">0-After Birth</option>
+                        <option value="6">Week 6</option>
+                        <option value="10">Week 10</option>
+                        <option value="14">Week 14</option>
+                        <option value="9">Month 9</option>
+                        <option value="18">Month 18</option>
+                    </select>
+                </div>
+            </div>
 
-    <div class="row p-2 border">
-        <div class="col">Polio (paralysis) - OPV (drops on mouth)</div>
-        <div class="col"><input type="date" name="" id="" class="form-control"></div>
-    </div>
+            
+        </div>
+    
+        <div class="row p-2 border border-dark  bg-primary text-white">
+            <div class="col text-md-start">Vaccine Name</div>
+            <div class="col text-center">Date</div>
+        </div>
+    
+        <div class="row p-2 border border-dark">
+            <div class="col">BCG(tuberculosis)</div>
+            <div class="col"><input type="date" name="" id="" class="form-control" formControlName="bcg"></div>
+        </div>
+    
+        <div class="row p-2 border border-dark">
+            <div class="col">Polio (paralysis) - OPV (drops on mouth)</div>
+            <div class="col"><input type="date" name="" id="" class="form-control" formControlName="opv"></div>
+        </div>
+    
+        <div class="row p-2 border border-dark">
+            <div class="col">Polio (paralysis) - IPV (Right thigh needle)</div>
+            <div class="col"><input type="date" name="" id="" class="form-control" formControlName="ipv"></div>
+        </div>
+    
+        <div class="row p-2 border border-dark">
+            <div class="col">DTP-hep B-Hib (sorethroats,whooping cough,tetanus na hepatitis B)</div>
+            <div class="col"><input type="date" name="" id="" class="form-control" formControlName="dtp" required></div>
+        </div>
+    
+        <div class="row p-2 border border-dark">
+            <div class="col">PCV13-(pneumonia) (left thigh needle)</div>
+            <div class="col"><input type="date" name="" id="" class="form-control" formControlName="pcv13"></div>
+        </div>
+    
+        <div class="row p-2 border border-dark">
+            <div class="col">ROTARIX-(diarrhea) (drops in mouths)</div>
+            <div class="col"><input type="date" name="" id="" class="form-control" formControlName="rotarix"></div>
+        </div>
+    
+        <div class="row p-2 border border-dark">
+            <div class="col">SURUA RUBELLA (MR) (left shoulder needle)</div>
+            <div class="col"><input type="date" name="" id="" class="form-control" formControlName="rubella"></div>
+            <input type="hidden" formControlName="child" [value]="selectedChild">
+        </div>
+    
+        <div class="row p-2 border border-dark">
+            <!-- <div class="col"></div> -->
+            <div class="col right"><input type="submit" value="Save" class=" btn btn-outline-primary">
+            <input type="reset" value="Reset" class="btn btn-outline-secondary ml-2"></div>
+        </div>
+    </form>
+</div>
+<div class="container p-3">
+    <div class=" p-3">
+        <div class="row p-2 bg-primary text-white"><b>Immunisation record data review</b></div>
+        <div class="table-responsive mt-3">
+            <div >
+            
+            <table class="table table-bordered">
+               
+               
+                <tr>
+                    <td></td>
+                    <td>0 after birth</td>
+                    <td>1 (week 6)</td>
+                    <td>2 (week 10)</td>
+                    <td>3 (week 14)</td>
+                </tr>
+                <tr>
+                    <td>BCG(tuberculosis)</td>
+                    <td> {{week0?.bcg}} </td>
+                    <td> {{week1?.bcg}} checking for scar </td>
+                    <td> {{week2?.bcg}} checking for scar </td>
+                    <td> {{week3?.bcg}} checking for scar </td>
+                </tr>
 
-    <div class="row p-2 border">
-        <div class="col">Polio (paralysis) - OPV (Right thigh needle)</div>
-        <div class="col"><input type="date" name="" id="" class="form-control"></div>
-    </div>
 
-    <div class="row p-2 border">
-        <div class="col">DTP-hep B-Hib (sorethroats,whooping cough,tetanus na hepatitis B)</div>
-        <div class="col"><input type="date" name="" id="" class="form-control"></div>
-    </div>
+                <tr>
+                    <td>Polio (paralysis) - OPV (drops on mouth)</td>
+                    <td> {{week0?.opv}} </td>
+                    <td> {{week1?.opv}} </td>
+                    <td> {{week2?.opv}} </td>
+                    <td> {{week3?.opv}} </td>
+                </tr>
+    
+                <tr>
+                    <td>Polio (paralysis) - OPV (Right thigh needle)</td>
+                    <td class="dark"></td>
+                    <td class="dark"></td>
+                    <td class="dark"></td>
+                    <td> {{week3?.ipv}} </td>
+                </tr>
 
-    <div class="row p-2 border">
-        <div class="col">PCV13-(pneumonia) (left thigh needle)</div>
-        <div class="col"><input type="date" name="" id="" class="form-control"></div>
-    </div>
+                <tr>
+                    <td>DTP-hep B-Hib (sorethroats,whooping cough,tetanus na hepatitis B)</td>
+                    <td class="dark"></td>
+                    <td> {{week1?.dtp}} </td>
+                    <td> {{week2?.dtp}} </td>
+                    <td> {{week3?.dtp}} </td>
+                </tr>
 
-    <div class="row p-2 border">
-        <div class="col">ROTARIX-(diarrhea) (drops in mouths)</div>
-        <div class="col"><input type="date" name="" id="" class="form-control"></div>
-    </div>
+                <tr>
+                    <td>PCV13-(pneumonia) (left thigh needle)</td>
+                    <td class="dark"></td>
+                    <td> {{week1?.pcv13}} </td>
+                    <td> {{week2?.pcv13}} </td>
+                    <td> {{week3?.pcv13}} </td>
+                </tr>
 
-    <div class="row p-2 border">
-        <div class="col">SURUA RUBELLA (MR) (left shoulder needle)</div>
-        <div class="col"><input type="date" name="" id="" class="form-control"></div>
-    </div>
+                <tr>
+                    <td>ROTARIX-(diarrhea) (drops in mouths)</td>
+                    <td class="dark"></td>
+                    <td> {{week1?.rotarix}} </td>
+                    <td> {{week2?.rotarix}} </td>
+                    <td class="dark"></td>
+                </tr>
 
-    <div class="row p-2 border">
-        <div class="col"></div>
-        <div class="col right"><input type="button" value="Save" class="btn btn-light border"></div>
+                <tr>
+                    <td>SURUA RUBELLA (MR) (left shoulder needle)</td>
+                    <!-- <td> </td> -->
+                    <td> </td>
+                  <!-- <div class="surua">  <td > </td> </div> -->
+                </tr>
+            </table>
+        </div>
+       
+        </div>
     </div>
 </div>
