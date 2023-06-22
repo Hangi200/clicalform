@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ChildRegistrationService } from '../child-registration.service';
-import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-
-
-
 
 @Component({
   selector: 'app-vitamin',
@@ -56,8 +52,6 @@ export class VitaminComponent implements OnInit {
       this.form.get('mouthPill')?.enable();
     }
   }
-  
-
 
   save() {
     this.form.value.week = parseInt(this.form.value.week);

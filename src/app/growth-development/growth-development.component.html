@@ -1,34 +1,54 @@
 <div class="container p-4">
-    <button type="button" class="btn btn-primary " (click)="addForm()">Add Form</button>
-
-    <div *ngFor="let form of forms" class="container p-4">
-        
-      <form>
-        <div class="form-row align-items-center">
-          <div class="col">
-            <label  for="dateInput">Visit Date</label>
-            <input type="date" class="form-control" id="dateInput" placeholder="Date">
-          </div>
-          <div class="col">
-            <label  for="weightInput">Weight (kg)</label>
-            <input type="number" class="form-control" id="weightInput" placeholder="Weight">
-          </div>
-          
-          <div class="col">
-            <label  for="secondDateInput">Next-Visit Date</label>
-            <input type="date" class="form-control" id="secondDateInput" placeholder="Date">
-          </div>
-          
-          <!-- <div class="col">
-            <button type="button" class="btn btn btn-outline-danger" (click)="removeForm(form)">Remove</button>
-          </div> -->
-          
-        </div>
-        <div class="row p-2 ">
-          <!-- <div class="col"></div> -->
-          <div class="col right"><input type="button" value="Save" class=" btn btn-outline-primary"></div>
+  <form [formGroup]="form" (submit)="submit()">
+    <div class="form-row align-items-center">
+      <div class="col">
+        <label  for="dateInput">Visit Date</label>
+        <input type="date" class="form-control" id="dateInput" formControlName="arrivalDate" placeholder="Date">
       </div>
-      </form>
+      <div class="col">
+        <label  for="weightInput">Weight (kg)</label>
+        <input type="number" class="form-control" id="weightInput" formControlName="childWeight" placeholder="Weight">
+      </div>
+      
+      <div class="col">
+        <label  for="secondDateInput">Next-Visit Date</label>
+        <input type="date" class="form-control" id="secondDateInput" formControlName="commingDate" placeholder="Date">
+      </div>
+      
+      <!-- <div class="col">
+        <button type="button" class="btn btn btn-outline-danger" (click)="removeForm(form)">Remove</button>
+      </div> -->
+      
+    </div>
+    <div class="row p-2 ">
+      <!-- <div class="col"></div> -->
+      <div class="col right"><input type="submit" value="Save" class=" btn btn-outline-primary"></div>
+  </div>
+  </form>  
+
+
+
+  <div class="row mt-3">
+    <div class="col-6">
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>Visit Date</th>
+          <th>Weight</th>
+          <th>Next Visit Date</th>
+        </tr>
+    
+        <tr *ngFor="let ob of data index by i">
+          <td> {{ob.arrivalDate}} </td>
+          <td> {{ob.childWeight}} </td>
+          <td> {{ob.commingDate}} </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col-6">
+      <app-growth-chart></app-growth-chart>
     </div>
   </div>
+  
+</div>
   

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { ChildListComponent } from './child-list/child-list.component';
 import { ChildDetailsComponent } from './child-details/child-details.component';
 import { VitaminComponent } from './vitamin/vitamin.component';
 import { GrowthDevelopmentComponent } from './growth-development/growth-development.component';
+import { GrowthChartComponent } from './growth-chart/growth-chart.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, children: [
@@ -37,7 +39,8 @@ const routes: Routes = [
     ChildDetailsComponent,
     VitaminComponent,
     GrowthDevelopmentComponent,
-    ImmunizationRecordComponent
+    ImmunizationRecordComponent,
+    GrowthChartComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgChartsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

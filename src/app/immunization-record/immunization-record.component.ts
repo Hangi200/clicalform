@@ -19,6 +19,8 @@ export class ImmunizationRecordComponent implements OnInit {
   week1:any;
   week2:any;
   week3:any;
+  week5:any;
+  week6:any;
 
 
 
@@ -139,7 +141,7 @@ export class ImmunizationRecordComponent implements OnInit {
   loadPriorImmunization() {
     this.service.getImmunesList(this.selectedChild.regNo).subscribe(response => {
       this.response = response;
-      var zeroth: any, first:any, second:any, third:any;
+      var zeroth: any, first:any, second:any, third:any,fifth:any, sixth:any;
       this.response.forEach(function(ob: any){
         var weekObject = {
           "week" : ob.week,
@@ -164,6 +166,12 @@ export class ImmunizationRecordComponent implements OnInit {
 
           case 14: third = weekObject;
           break;
+
+          case 9: fifth = weekObject;
+          break;
+
+          case 18: sixth = weekObject;
+          break;
         }
 
       });
@@ -171,6 +179,8 @@ export class ImmunizationRecordComponent implements OnInit {
       this.week1 = first;
       this.week2 = second;
       this.week3 = third;
+      this.week5 = fifth;
+      this.week6 = sixth;
     });
   }
 

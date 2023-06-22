@@ -8,8 +8,6 @@ export class ChildRegistrationService {
 
   url:string = "http://localhost:8080/child";
   urlList:string = "http://localhost:8080/child";
-  immuneUrl = "http://localhost:8080/immunization";
-  getImmuneListUrl = "http://localhost:8080/immunization/child/";
 
   constructor(private http:HttpClient) { }
 
@@ -24,11 +22,13 @@ export class ChildRegistrationService {
 
   registerImmune(data:any) {
     const headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*' });
-    return this.http.post(this.immuneUrl, data, { headers });
+    let immuneUrl = "http://localhost:8080/immunization";
+    return this.http.post(immuneUrl, data, { headers });
   }
 
   getImmuneList() {
-    return this.http.get(this.immuneUrl);
+    let immuneUrl = "http://localhost:8080/immunization";
+    return this.http.get(immuneUrl);
   }
 
   registerMedication(data:any) {
@@ -44,12 +44,24 @@ export class ChildRegistrationService {
   }
 
   getImmunesList(id:any) {
-    return this.http.get(this.getImmuneListUrl + id);
+    let getImmuneListUrl = "http://localhost:8080/immunization/child/";
+    return this.http.get(getImmuneListUrl + id);
   }
 
   getMedications(id:any) {
     var medicationUrl = "http://localhost:8080/medication/child/";
     return this.http.get(medicationUrl + id);
+  }
+
+  getGrowthDevelopment(id:any) {
+    var devUrl = "http://localhost:8080/growth/child/" + id;
+    return this.http.get(devUrl);
+  }
+
+  saveGrowthDevelopment(data:any, id:any) {
+    var devUrl = "http://localhost:8080/growth/child/" + id;
+    const headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*' });
+    return this.http.post(devUrl, data, {headers});
   }
 
 }
