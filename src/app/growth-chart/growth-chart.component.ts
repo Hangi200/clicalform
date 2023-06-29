@@ -11,10 +11,10 @@ export class GrowthChartComponent implements OnInit {
   data: any = [
     { weight: 10, date: 10 },
     { weight: 20, date: 20 },
-    { weight: 90, date: 30 },
+    { weight: 40, date: 30 },
     { weight: 60, date: 40 },
-    { weight: 30, date: 50 },
-    { weight: 70, date: 60 },
+    { weight: 70, date: 50 },
+    { weight: 80, date: 60 },
     { weight: 90, date: 70 },
   ];
 

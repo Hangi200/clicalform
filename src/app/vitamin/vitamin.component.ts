@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { ChildRegistrationService } from '../child-registration.service';
 import { Router } from '@angular/router';
 
@@ -37,10 +37,10 @@ export class VitaminComponent implements OnInit {
     this.loadMedications();
   }
 
-  form = new FormGroup({
-    week: new FormControl(),
-    mouthDrop: new FormControl(),
-    mouthPill: new FormControl()
+  form = new UntypedFormGroup({
+    week: new UntypedFormControl(),
+    mouthDrop: new UntypedFormControl(),
+    mouthPill: new UntypedFormControl()
   });
 
   onSelectedChange() {

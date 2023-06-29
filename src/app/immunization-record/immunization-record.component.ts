@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { ChildRegistrationService } from '../child-registration.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -29,16 +29,16 @@ export class ImmunizationRecordComponent implements OnInit {
     this.selectedChild = JSON.parse(this.selectedChildString);
   }
 
-  form = new FormGroup({
-    week: new FormControl(100),
-    bcg: new FormControl(),
-    opv: new FormControl(),
-    ipv: new FormControl(),
-    dtp: new FormControl(),
-    pcv13: new FormControl(),
-    rotarix: new FormControl(),
-    rubella: new FormControl(),
-    child: new FormControl()
+  form = new UntypedFormGroup({
+    week: new UntypedFormControl(100),
+    bcg: new UntypedFormControl(),
+    opv: new UntypedFormControl(),
+    ipv: new UntypedFormControl(),
+    dtp: new UntypedFormControl(),
+    pcv13: new UntypedFormControl(),
+    rotarix: new UntypedFormControl(),
+    rubella: new UntypedFormControl(),
+    child: new UntypedFormControl()
   });
 
   onSelectedChange() {

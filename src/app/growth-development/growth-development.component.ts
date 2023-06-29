@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { ChildRegistrationService } from '../child-registration.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -22,10 +22,10 @@ export class GrowthDevelopmentComponent implements OnInit {
     this.selectedChild = JSON.parse(this.selectedChildString);
   }
 
-  form = new FormGroup({
-    arrivalDate: new FormControl(),
-    commingDate: new FormControl(),
-    childWeight: new FormControl()
+  form = new UntypedFormGroup({
+    arrivalDate: new UntypedFormControl(),
+    commingDate: new UntypedFormControl(),
+    childWeight: new UntypedFormControl()
   });
 
   submit() {
