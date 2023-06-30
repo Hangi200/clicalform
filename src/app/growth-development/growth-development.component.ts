@@ -1,8 +1,9 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { ChildRegistrationService } from '../child-registration.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GrowthChartComponent } from '../growth-chart/growth-chart.component';
 
 
 @Component({
@@ -42,7 +43,6 @@ export class GrowthDevelopmentComponent implements OnInit {
     let id = this.selectedChild.regNo;
     this.service.getGrowthDevelopment(id).subscribe(response => {
         this.data = response;
-        console.log(this.data);
     });
   }
 
