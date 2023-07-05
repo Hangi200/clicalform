@@ -104,7 +104,7 @@ export class GrowthChartComponent implements OnInit {
                 {
                   label: "Weight",
                   data: weights,
-                  borderColor: "green",
+                  borderColor: "blue",
                   fill: false
                 }
               ]
@@ -117,7 +117,7 @@ export class GrowthChartComponent implements OnInit {
 
           const canvas = document.createElement("canvas");
           chartContainer?.appendChild(canvas);
-    
+          canvas.style.width = "100%";
           this.chart = new Chart(canvas, config);
         }
       }
